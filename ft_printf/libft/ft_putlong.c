@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putlong.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 17:27:37 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/20 15:15:31 by rothomps         ###   ########.fr       */
+/*   Created: 2019/06/26 20:56:25 by rothomps          #+#    #+#             */
+/*   Updated: 2019/06/26 20:56:27 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-char    *ft_strchr(const char *s, int c)
+void		ft_putlong(long n)
 {
-        char *ptr;
-
-        ptr = (char *)s;
-        while (*ptr)
-        {
-                if (*ptr != c)
-                        ptr++;
-                if (*ptr == c)
-                        return (ptr);
-        }
-        return (NULL);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		if (n == LONG_MIN)
+			return (ft_putstr("9223372036854775808"));
+		n = n * -1;
+	}
+	if (n >= 10)
+		ft_putlong(n / 10);
+	ft_putchar((n % 10) + '0');
 }

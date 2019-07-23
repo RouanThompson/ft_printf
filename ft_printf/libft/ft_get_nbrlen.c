@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_get_nbrlen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 17:27:37 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/20 15:15:31 by rothomps         ###   ########.fr       */
+/*   Created: 2019/06/14 17:14:17 by rothomps          #+#    #+#             */
+/*   Updated: 2019/06/14 17:14:30 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strchr(const char *s, int c)
+size_t	ft_get_nbrlen(int base, long int n)
 {
-        char *ptr;
+	size_t	i;
 
-        ptr = (char *)s;
-        while (*ptr)
-        {
-                if (*ptr != c)
-                        ptr++;
-                if (*ptr == c)
-                        return (ptr);
-        }
-        return (NULL);
+	i = 1;
+	while ((n = n / base))
+		i++;
+	return (i);
 }

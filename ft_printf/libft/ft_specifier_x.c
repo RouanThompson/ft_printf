@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_specifier_x.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 17:27:37 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/20 15:15:31 by rothomps         ###   ########.fr       */
+/*   Created: 2019/07/04 16:00:57 by rothomps          #+#    #+#             */
+/*   Updated: 2019/07/04 16:00:58 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strchr(const char *s, int c)
+int     ft_specifier_x(void *d, char format)
 {
-        char *ptr;
-
-        ptr = (char *)s;
-        while (*ptr)
-        {
-                if (*ptr != c)
-                        ptr++;
-                if (*ptr == c)
-                        return (ptr);
-        }
-        return (NULL);
+    write(1, "0x", 2);
+	ft_putstr(ft_ultoa_base(16, (size_t)d, format));
+    return (0);
 }

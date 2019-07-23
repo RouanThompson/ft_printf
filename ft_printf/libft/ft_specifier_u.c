@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_specifier_u.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 17:27:37 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/20 15:15:31 by rothomps         ###   ########.fr       */
+/*   Created: 2019/07/04 16:26:28 by rothomps          #+#    #+#             */
+/*   Updated: 2019/07/04 16:26:30 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strchr(const char *s, int c)
+int     ft_specifier_u(void *d)
 {
-        char *ptr;
-
-        ptr = (char *)s;
-        while (*ptr)
-        {
-                if (*ptr != c)
-                        ptr++;
-                if (*ptr == c)
-                        return (ptr);
-        }
-        return (NULL);
+    ft_putstr(ft_uitoa((unsigned int)d));
+    return (0);
 }
