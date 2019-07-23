@@ -6,7 +6,7 @@
 #    By: rothomps <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/29 12:36:55 by rothomps          #+#    #+#              #
-#    Updated: 2019/05/29 12:42:26 by rothomps         ###   ########.fr        #
+#    Updated: 2019/06/24 19:46:12 by rothomps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,8 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME):
-	make -C $(LIBFT)
-	$(GCC) $(FLAGS) -c $(SRC) -I $(LIBFT)
-	$(GCC) -o $(NAME) $(OBJ) $(LIBFLAGS)
+	make -C libft
+	$(GCC) $(FLAGS) $(SRC) -I. -I./libft $(LIBFLAGS) -g -fsanitize=address -o libftprintf
 
 clean:
 	rm -f $(OBJ)
