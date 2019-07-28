@@ -15,7 +15,18 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
+ typedef struct     subspec_valist
+ {
+    int     i;
+    int     flag;
+    int     width;
+    int     precision;
+    int     modifier;
+    char    *format;
+    va_list va;
+ }                  toolshed;
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				*ft_memset(void *b, int c, size_t len);
@@ -40,7 +51,7 @@ int                 ft_specifier_di(void *d);
 int                 ft_specifier_x(void *d, char format);
 int                 ft_specifier_o(void *d, char format);
 int                 ft_specifier_u(void *d);
-int                 ft_specifier_f(double d, const char *format, int i);
+void                ft_specifier_f(toolshed *list);
 char                *ft_strchr(const char *s, int c);
 
 #endif

@@ -12,23 +12,25 @@
 
 #include "libft.h"
 
-int     ft_specifier_f(double d, const char *format, int i)
+void     ft_specifier_f(toolshed *list)
 {
-    if(format[i] == 'f')
+	double d;
+
+	d = va_arg(list->va, double);
+    if(list->format[list->i] == 'f')
 		ft_putfloat(d, 6); //defualt to 6 precision if no '.'
-	else if (format[i] ==  '.' && ft_isdigit(format[i + 1])) //if precision and number specified
+	else if (list->format[list->i] ==  '.' && ft_isdigit(list->format[list->i + 1])) //if dot && if next ele is digit
 	{
-		i++;
-		ft_putfloat(d, ft_atoi(&format[i]));
-		while (ft_isdigit(format[i]))// while the next element is alpha-numeric skip. 
-			i++;					// will be on alnum still but is iterated after last else
+		list->i++;
+		ft_putfloat(d, ft_atoi(&list->format[list->i]));
+		while (ft_isdigit(list->format[list->i]))// while the next element is alpha-numeric skip. 
+			list->i++;					// will be on alnum still but is iterated after last else
 	}
 	else
 	{
 		ft_putfloat(d, 0); //if '.' but no number
-		i++;
+		list->i++;
 	}
-    return (i);
 }
 /*
 ** cant cast void * to double * ...due to alignement?

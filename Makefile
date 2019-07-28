@@ -24,7 +24,7 @@ LIBFT = libft
 
 LIB = libft.a
 
-SRC = ft_printf.c
+SRC = ft_printf.c convert.c
 
 OBJ = $(SRC:.c=.o)
 
