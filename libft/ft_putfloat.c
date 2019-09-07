@@ -27,6 +27,8 @@ void    ft_putfloat(double num, int precision) //Does not handle 0s that are bef
         given_precision--;
     }
     ft_putstr(ft_ltoa_base(10, (long)num));//prints only whole number
+    if (num < 0)
+        num = num * -1;
     num = num + round;// make this a variable that extends based on the precision length
     num = num - (long)num;// .xx = xx.xx - x
     if (precision >= 1)

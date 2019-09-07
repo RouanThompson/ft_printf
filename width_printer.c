@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_o.c                                   :+:      :+:    :+:   */
+/*   width_printer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 16:19:07 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/04 16:19:09 by rothomps         ###   ########.fr       */
+/*   Created: 2019/09/02 04:24:26 by rothomps          #+#    #+#             */
+/*   Updated: 2019/09/02 04:24:28 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int     ft_specifier_o(void *d, char format)
+void    width_printer(t_printf *q)
 {
-    write(1, "0", 2);
-    ft_putstr(ft_ultoa_base(8, (size_t)d, format));
-    return (0);
+    q->tmp = q->precision_val;
+    if (q->precision_val < q->len)
+        q->precision_val = q->len;
+    if (q->width_val > q->precision_val)
+        q->width_val = q->width_val - q->precision_val;
+    else
+        q->width_val = 0;
+    while (q->width_val--)
+        write(1, " ", 1);
+    q->precision_val = q->tmp;
 }
-

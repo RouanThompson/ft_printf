@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_p.c                                   :+:      :+:    :+:   */
+/*   ft_printbits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:50:04 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/04 15:50:06 by rothomps         ###   ########.fr       */
+/*   Created: 2019/08/03 18:07:01 by rothomps          #+#    #+#             */
+/*   Updated: 2019/08/03 18:07:05 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_specifier_p(void *d)
+void    ft_print_bits(unsigned char octet)
 {
-    write(1, "0x", 2);
-	ft_putstr(ft_itoa_base(16, (size_t)d));
-    return (0);
+    int i;
+
+    i = 256;
+    while((i = i >> 1))
+        (octet & i) ? write(1, "1", 1) : write(1, "0", 1);
 }

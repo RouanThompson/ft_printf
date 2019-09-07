@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_u.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 16:26:28 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/04 16:26:30 by rothomps         ###   ########.fr       */
+/*   Created: 2018/10/23 13:24:05 by rothomps          #+#    #+#             */
+/*   Updated: 2018/10/29 12:05:54 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_specifier_u(void *d)
+size_t		ft_strlen(const char *s)
 {
-    ft_putstr(ft_uitoa((unsigned int)d));
-    return (0);
+	size_t i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

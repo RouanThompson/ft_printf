@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_c.c                                   :+:      :+:    :+:   */
+/*   ft_search_dioux.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 14:02:57 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/04 14:02:58 by rothomps         ###   ########.fr       */
+/*   Created: 2019/08/12 15:59:55 by rothomps          #+#    #+#             */
+/*   Updated: 2019/08/12 15:59:56 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int     ft_specifier_c(void *d)
+/*
+** search for spcifier rtn 1 if not found
+*/
+
+int    ft_search_dioux(const char c)
 {
-    ft_putchar((int)d);
-    return (0);
+    char *s;
+
+    s = "c%sdipxXouf";
+    while (*s)
+    {
+        if (c != *s)
+            s++;
+        else
+            return (0);
+    }
+    return (1);
 }

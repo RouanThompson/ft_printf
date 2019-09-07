@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_di.c                                  :+:      :+:    :+:   */
+/*   ft_specifier_p.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:54:26 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/04 15:54:29 by rothomps         ###   ########.fr       */
+/*   Created: 2019/07/04 15:50:04 by rothomps          #+#    #+#             */
+/*   Updated: 2019/07/04 15:50:06 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int     ft_specifier_di(void *d)
+int     ft_spec_p(t_printf *q)
 {
-    ft_putstr(ft_itoa((int)d));
+    size_t d;
+
+    d = va_arg(q->va, size_t);
+    write(1, "0x", 2);
+	ft_putstr(ft_itoa_base(16, d));
     return (0);
 }

@@ -58,9 +58,38 @@
 # define S_F  (1 << 7)
 
 
-
-int      ft_printf(const char *format, ...);
-void     convert(toolshed *list);
-
+typedef struct     s_printf
+{
+    int     i;
+    int     flag;
+    int     width;
+    int     precision;
+    int     modifier;
+    int     specifier;
+    char    *format;
+    size_t  width_val;
+    size_t  precision_val;
+    size_t  len;
+    size_t  tmp;
+    va_list va;
+}                  t_printf;
+int     ft_printf(const char *format, ...);
+void    convert(t_printf *q);
+void    reset_t_printf(t_printf *q);
+int     ft_search_dioux(const char c);
+void    check_flags(t_printf *q);
+void    width(t_printf *q);
+void    width_printer(t_printf *q);
+void    precision(t_printf *q);
+void    modifiers(t_printf *q);
+void    specifiers(t_printf *q);
+int     ft_spec_c(t_printf *q);
+int     ft_spec_s(t_printf *q);
+int     ft_spec_p(t_printf *q);
+int     ft_spec_di(t_printf *q);
+int     ft_spec_x(t_printf *q);
+int     ft_spec_o(t_printf *q);
+int     ft_spec_u(t_printf *q);
+void    ft_spec_f(t_printf *q);
 
 #endif

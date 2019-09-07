@@ -34,7 +34,10 @@ char			*ft_ltoa_base(int base, long int n)
 	len = ft_get_lnbrlen(base, n);
 	n_cpy = n;
 	if (n < 0)
+	{
+		n_cpy = n_cpy * -1;
 		len++;
+	}
 	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	str[len] = '\0';

@@ -17,9 +17,8 @@ HEAD = libft.h
 SRC =	ft_bzero.c ft_isdigit.c ft_itoa_base.c ft_putchar.c ft_putlong.c\
 		ft_strcpy.c ft_strnew.c ft_ultoa_base.c ft_atoi.c ft_get_nbrlen.c\
 		ft_itoa.c ft_memset.c ft_putfloat.c ft_putstr.c ft_strdel.c\
-		ft_uitoa.c ft_ltoa_base.c ft_specifier_c.c ft_specifier_s.c\
-		ft_specifier_p.c ft_specifier_di.c ft_specifier_x.c ft_specifier_o.c\
-		ft_specifier_u.c ft_specifier_f.c
+		ft_uitoa.c ft_ltoa_base.c ft_printbits.c ft_isalpha.c\
+		ft_putstr_precision.c ft_strlen.c
 
 OBJ = $(SRC:.c=.o)
 

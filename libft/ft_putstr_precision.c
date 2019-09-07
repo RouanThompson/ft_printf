@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_x.c                                   :+:      :+:    :+:   */
+/*   ft_putstr_precision.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothomps <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 16:00:57 by rothomps          #+#    #+#             */
-/*   Updated: 2019/07/04 16:00:58 by rothomps         ###   ########.fr       */
+/*   Created: 2019/08/25 17:54:52 by rothomps          #+#    #+#             */
+/*   Updated: 2019/08/25 17:54:54 by rothomps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_specifier_x(void *d, char format)
+void	ft_putstr_precision(char const *s, int precision)
 {
-    write(1, "0x", 2);
-	ft_putstr(ft_ultoa_base(16, (size_t)d, format));
-    return (0);
+	int i;
+
+	i = 0;
+	while (s[i] != '\0' && precision)
+	{
+		ft_putchar(s[i]);
+		i++;
+		precision--;
+	}
 }

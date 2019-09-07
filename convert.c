@@ -11,30 +11,29 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 /*
-** prints specifiers
+** check flags(no conversion yet must code it) then specifiers(converts)
 */
 
-void    convert(toolshed *list)
+void    convert(t_printf *q)
 {
-	// call sub_spec
-	if (list->format[list->i] == 'c' || list->format[list->i] == '%') //|| (format[i] == '.' && format[i + 1] == 'c')) //character
-		ft_specifier_c(va_arg(list->va, void *));
-	else if (list->format[list->i] == 's') //string
-		ft_specifier_s(va_arg(list->va, void *));
-	else if (list->format[list->i] == 'p') //memory address unsigned
-		ft_specifier_p(va_arg(list->va, void *));
-	else if ((list->format[list->i] == 'd') || (list->format[list->i] == 'i')) //decimal signed interger
-		ft_specifier_di(va_arg(list->va, void *));
-	else if (list->format[list->i] == 'x' || list->format[list->i] == 'X') //hex unsigned
-		ft_specifier_x(va_arg(list->va, void *), list->format[list->i]);
-	else if (list->format[list->i] == 'o') //unsigned octal
-		ft_specifier_o(va_arg(list->va, void *), 'x');
-	else if (list->format[list->i] == 'u') //unsigned decimal int
-	    ft_specifier_u(va_arg(list->va, void *));
-	else if (list->format[list->i] ==  '.' || list->format[list->i] == 'f') //lont int
-		ft_specifier_f(list);
+	check_flags(q);
+	if (q->specifier & S_C) //char
+		ft_spec_c(q);
+	else if (q->specifier & S_S) //string
+		ft_spec_s(q);
+	else if (q->specifier & S_P) //memory address unsigned
+		ft_spec_p(q);
+	else if (q->specifier & S_DI) //decimal signed interger
+		ft_spec_di(q);
+	else if (q->specifier & S_X) //hex unsigned
+		ft_spec_x(q);
+	else if (q->specifier & S_O) //unsigned octal
+		ft_spec_o(q);
+	else if (q->specifier & S_U) //unsigned decimal int
+	    ft_spec_u(q);
+	else if (q->specifier & S_F) //lont int
+		ft_spec_f(q);
 }
 /*
 ** will have to rework the function to take a list

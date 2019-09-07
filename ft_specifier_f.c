@@ -10,29 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void     ft_specifier_f(toolshed *list)
+#include "ft_printf.h"
+/*
+** make it prettier
+*/
+void     ft_spec_f(t_printf *q) //does not support negative numbers
 {
 	double d;
 
-	d = va_arg(list->va, double);
-    if(list->format[list->i] == 'f')
+	d = va_arg(q->va, double);
+    if (q->format[q->i] == 'f') ///need to check the actual position instead of if flag is present
 		ft_putfloat(d, 6); //defualt to 6 precision if no '.'
-	else if (list->format[list->i] ==  '.' && ft_isdigit(list->format[list->i + 1])) //if dot && if next ele is digit
+	else if ((q->precision & P_N) || (q->precision & P_A) || (q->flag & F_H)) //if dot && if next ele is digit
 	{
-		list->i++;
-		ft_putfloat(d, ft_atoi(&list->format[list->i]));
-		while (ft_isdigit(list->format[list->i]))// while the next element is alpha-numeric skip. 
-			list->i++;					// will be on alnum still but is iterated after last else
+		//q->i++;
+		//if PN
+		ft_putfloat(d, ft_atoi(&q->format[q->i]));
+		if (q->flag & F_H && (q->format[q->i] == '0' || q->format[q->i] == '.'))
+		{
+			write(1, ".", 1);
+			q->i++;
+		}
+		while (ft_isdigit(q->format[q->i]))// while the next element is alpha-numeric skip. 
+			q->i++;					// will be on alnum still but is iterated after last else
+		//if PA
 	}
-	else
+	else //if '.' but no number
 	{
-		ft_putfloat(d, 0); //if '.' but no number
-		list->i++;
+		ft_putfloat(d, 0);
+		q->i++;
 	}
 }
 /*
 ** cant cast void * to double * ...due to alignement?
-**
 */
